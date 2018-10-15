@@ -16,3 +16,4 @@ class URL(object):
     #获取用户信息
     userinfo="/user/getUserInfo"
     #上传头像
+    upload_pic="/file/upload"
