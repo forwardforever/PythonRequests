@@ -17,5 +17,7 @@ class LoginUnit(unittest.TestCase):
       print self.response
 
       self.uid= self.login.getUid()
+      self.token = self.login.getToken()
+      print self.uid,self.token
 
       self.assertEqual("21387",str(self.uid))

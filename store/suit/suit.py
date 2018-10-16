@@ -5,6 +5,9 @@
 import unittest
 from store.unit import registerunit
 from store.unit import loginunit
+from store.unit import uploadpicuint
+from store.unit import userinfounit
+
 import time
 import HTMLTestRunner
 import os
@@ -48,8 +51,15 @@ def new_report(test_report):
 if __name__=='__main__':
     #添加单元测试到测试套件中
     suit = unittest.TestSuite()
+    #添加注册的单元测试
     suit.addTest(unittest.makeSuite(registerunit.RegisterUnit))
+    # 添加登录的单元测试
     suit.addTest(unittest.makeSuite(loginunit.LoginUnit))
+    # 添加上传头像的单元测试
+    suit.addTest(unittest.makeSuite(uploadpicuint.UploadPicUnit))
+
+    # 添加获取用户信息的单元测试
+    suit.addTest(unittest.makeSuite(userinfounit.UserInfoUnit))
     #直接添加单元测试到测试套件中
     #suit= unittest.makeSuite(registerunit.RegisterUnit,"test")
     path = os.getcwd()  # 此脚本的父级目录
