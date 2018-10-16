@@ -4,6 +4,7 @@
 # date 2018/10/15 16:18 
 import unittest
 from store.unit import registerunit
+from store.unit import loginunit
 import time
 import HTMLTestRunner
 import os
@@ -48,6 +49,7 @@ if __name__=='__main__':
     #添加单元测试到测试套件中
     suit = unittest.TestSuite()
     suit.addTest(unittest.makeSuite(registerunit.RegisterUnit))
+    suit.addTest(unittest.makeSuite(loginunit.LoginUnit))
     #直接添加单元测试到测试套件中
     #suit= unittest.makeSuite(registerunit.RegisterUnit,"test")
     path = os.getcwd()  # 此脚本的父级目录
@@ -56,7 +58,7 @@ if __name__=='__main__':
     #写入
     with open(report_name, 'wb') as fp:
        # 生成报告未HTML格式，
-       runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u'手机计算器测试报告', description=u'用例执行情况')
+       runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u'西虹市口自动化测试报告', description=u'接口用例执行情况')
        runner.run(suit)  # 开始执行生成测试报告
     #此方法是获取测试报告的所在目录路径
     new_report = new_report(path + '\\report\\')
